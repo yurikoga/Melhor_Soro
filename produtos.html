@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Produto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="index.html" class="voltar">← Voltar</a>
+
+<div class="produto-container">
+
+  <!-- IMAGEM -->
+  <div class="produto-img">
+    <img id="img" src="">
+  </div>
+
+  <!-- INFORMAÇÕES -->
+  <div class="produto-info">
+
+    <h2 id="nome"></h2>
+
+    <!-- AVALIAÇÃO -->
+    <div class="avaliacao">
+      ⭐⭐⭐⭐⭐ <span>(+150 avaliações)</span>
+    </div>
+
+    <!-- PREÇO -->
+    <h1 id="preco" class="preco"></h1>
+    <p class="parcelamento">ou até 3x sem juros</p>
+
+    <!-- DESCRIÇÃO -->
+    <p class="descricao">
+      Whey Protein de alta qualidade, ideal para ganho de massa muscular,
+      recuperação pós-treino e aumento de desempenho.
+    </p>
+
+    <!-- QUANTIDADE -->
+    <div class="quantidade">
+      <button onclick="diminuir()">-</button>
+      <span id="qtd">1</span>
+      <button onclick="aumentar()">+</button>
+    </div>
+
+    <!-- BOTÕES -->
+    <button class="comprar">Comprar agora</button>
+    <button class="carrinho">Adicionar ao carrinho</button>
+
+    <!-- FRETE -->
+    <div class="frete">
+      <input type="text" placeholder="Digite seu CEP">
+      <button>Calcular frete</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = Number(params.get("id"));
+
+const produtos = {
+  1: {
+    nome: "Best Whey - Maracujá",
+    img: "imagem/maracuja.jpg",
+    preco: "R$ 295,90"
+  },
+  2: {
+    nome: "Best Whey - Morango",
+    img: "imagem/morango.jpeg",
+    preco: "R$ 234,19"
+  },
+  3: {
+    nome: "Best Whey - Chocolate",
+    img: "imagem/chocolate.jpeg",
+    preco: "R$ 199,90"
+  },
+  4: {
+    nome: "Best Whey - Pistache",
+    img: "imagem/pistache.jpg",
+    preco: "R$ 265,52"
+  }
+};
+
+if (produtos[id]) {
+  document.getElementById("nome").innerText = produtos[id].nome;
+  document.getElementById("img").src = produtos[id].img;
+  document.getElementById("preco").innerText = produtos[id].preco;
+}
+
+/* QUANTIDADE */
+let qtd = 1;
+
+function aumentar() {
+  qtd++;
+  document.getElementById("qtd").innerText = qtd;
+}
+
+function diminuir() {
+  if (qtd > 1) {
+    qtd--;
+    document.getElementById("qtd").innerText = qtd;
+  }
+}
+</script>
+
+</body>
+</html>
