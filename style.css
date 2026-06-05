@@ -1,0 +1,302 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+.container {
+  padding: 40px;
+}
+
+.lista-produtos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+  width: 220px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* FUNDO ANIMADO */
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  border-radius: 15px;
+  transition: 0.4s ease;
+  z-index: 0;
+}
+
+/* CORES POR CARD */
+.card:nth-child(1)::before {
+  background: linear-gradient(135deg, #f2e600, #fff176);
+}
+
+.card:nth-child(2)::before {
+  background: linear-gradient(135deg, #d91e0f, #ff6f60);
+}
+
+.card:nth-child(3)::before {
+  background: linear-gradient(135deg, #e0b98f, #f5d6b4);
+}
+
+.card:nth-child(4)::before {
+  background: linear-gradient(135deg, #7f8f6b, #a5b592);
+}
+
+/* ATIVA NO HOVER */
+.card:hover::before {
+  height: 100%;
+}
+
+/* GARANTE QUE TUDO FIQUE NA FRENTE */
+.card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* IMG BOX */
+.img-box {
+  width: 220px;
+  height: 320px;
+  margin: 0 auto 10px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+
+  background-size: cover;
+  background-position: center;
+
+  transition: 0.3s;
+}
+
+/* EFEITO NA IMAGEM */
+.card:hover .img-box {
+  transform: scale(1.05);
+}
+
+/* NÚMERO */
+.numero {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.amarelo { color: #e6d400; }
+.vermelho { color: #c91b0e; }
+.bege { color: #e0b98f; }
+.verde { color: #7f8f6b; }
+
+/* TEXTO */
+.card p {
+  font-size: 14px;
+}
+
+/* BOTÃO */
+.card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* CORES DOS BOTÕES */
+.card:nth-child(1) button {
+  background: #f2e600;
+}
+
+.card:nth-child(2) button {
+  background: #d91e0f;
+  color: white;
+}
+
+.card:nth-child(3) button {
+  background: #e0b98f;
+}
+
+.card:nth-child(4) button {
+  background: #7f8f6b;
+}
+
+/* HOVER BOTÃO */
+.card button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ================= PRODUTO ================= */
+
+.produto-container {
+  display: flex;
+  gap: 60px;
+  padding: 60px;
+  justify-content: center;
+  align-items: center;
+  background: #f8f8f8;
+}
+
+/* IMAGEM */
+.produto-img {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.produto-img img {
+  width: 320px;
+  transition: 0.3s;
+}
+
+.produto-img img:hover {
+  transform: scale(1.05);
+}
+
+/* INFO */
+.produto-info {
+  max-width: 400px;
+}
+
+.produto-info h2 {
+  font-size: 24px;
+}
+
+/* AVALIAÇÃO */
+.avaliacao {
+  color: #f2c94c;
+  margin: 10px 0;
+}
+
+.avaliacao span {
+  color: #666;
+  font-size: 14px;
+}
+
+/* PREÇO */
+.preco {
+  font-size: 32px;
+  color: #2e7d32;
+  margin: 10px 0;
+}
+
+/* PARCELAMENTO */
+.parcelamento {
+  color: #777;
+  font-size: 14px;
+}
+
+/* DESCRIÇÃO */
+.descricao {
+  margin: 15px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+/* QUANTIDADE */
+.quantidade {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.quantidade button {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* BOTÕES */
+.comprar {
+  width: 100%;
+  padding: 15px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.comprar:hover {
+  background: #1b5e20;
+}
+
+.carrinho {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  border: 2px solid #2e7d32;
+  color: #2e7d32;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.carrinho:hover {
+  background: #e8f5e9;
+}
+
+/* FRETE */
+.frete {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.frete input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.frete button {
+  padding: 10px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.voltar {
+  display: inline-block;
+  margin: 20px 40px;
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid #2e7d32;
+  border-radius: 10px;
+  color: #2e7d32;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.voltar:hover {
+  background: #2e7d32;
+  color: white;
+}
